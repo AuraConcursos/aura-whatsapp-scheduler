@@ -33,8 +33,17 @@ const upload = multer({ storage });
 const agendamentos = [];
 
 const client = new Client({
-  authStrategy: new LocalAuth(),
-  xecutablePath: 'C:\\Program Files\\Google\\Chrome\\Application\\ch
+    authStrategy: new LocalAuth(),
+
+    puppeteer: {
+        headless: true,
+        args: [
+            '--no-sandbox',
+            '--disable-setuid-sandbox',
+            '--disable-dev-shm-usage',
+            '--disable-gpu'
+        ]
+    }
 });
 
 client.on('qr', qr => {
