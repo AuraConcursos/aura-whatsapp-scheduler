@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Aura Scheduler</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <aside>
+    <h2>Aura Scheduler</h2>
+    <nav>
+      <button class="active">Agendamentos</button>
+      <button>Grupos</button>
+      <button>Histórico</button>
+      <button>Configurações</button>
+    </nav>
+  </aside>
+
+  <main>
+    <header>
+      <div>
+        <h1>Agendar mensagem</h1>
+        <p>Envie mensagens automáticas para seus grupos do WhatsApp.</p>
+      </div>
+      <span class="status">WhatsApp conectado</span>
+    </header>
+
+    <section class="card">
+      <h3>Novo agendamento</h3>
+
+      <label>Grupo</label>
+      <select id="grupo"></select>
+
+      <label>Mensagem</label>
+<input type="file" id="imagem" accept="image/*">
+      <textarea id="mensagem" placeholder="Digite a mensagem que será enviada..."></textarea>
+
+      <div class="grid">
+        <div>
+          <label>Hora</label>
+          <input type="number" id="hora" min="0" max="23" placeholder="9">
+        </div>
+
+        <div>
+          <label>Minuto</label>
+          <input type="number" id="minuto" min="0" max="59" placeholder="30">
+        </div>
+      </div>
+
+      <label>Recorrência</label>
+      <select id="tipo">
+        <option value="diario">Todos os dias</option>
+        <option value="semanal">Toda semana</option>
+      </select>
+
+      <div id="boxDiaSemana">
+        <label>Dia da semana</label>
+        <select id="diaSemana">
+          <option value="0">Domingo</option>
+          <option value="1">Segunda-feira</option>
+          <option value="2">Terça-feira</option>
+          <option value="3">Quarta-feira</option>
+          <option value="4">Quinta-feira</option>
+          <option value="5">Sexta-feira</option>
+          <option value="6">Sábado</option>
+        </select>
+      </div>
+
+      <button class="primary" onclick="criarAgendamento()">Agendar mensagem</button>
+    </section>
+
+    <section class="card">
+      <h3>Agendamentos ativos</h3>
+      <div id="listaAgendamentos"></div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
