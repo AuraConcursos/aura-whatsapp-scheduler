@@ -48,7 +48,7 @@ client.on('ready', async () => {
 
 // ROTA TESTE
 app.get('/', (req, res) => {
-    res.send('Servidor WhatsApp funcionando 🚀');
+    res.sendFile(__dirname + '/public/index.html');
 });
 
 // ENVIAR MENSAGEM
