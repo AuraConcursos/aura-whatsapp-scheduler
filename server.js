@@ -78,6 +78,21 @@ app.get('/enviar', async (req, res) => {
     res.send('Mensagem enviada com sucesso!');
 });
 
+app.get('/grupos', async (req, res) => {
+    try {
+        const chats = await client.getChats();
+
+        const grupos = chats
+            .filter(chat => chat.isGroup)
+            .map(chat => chat.name);
+
+        res.json(grupos);
+    } catch (error) {
+        console.error('Erro ao buscar grupos:', error);
+        res.status(500).json({ erro: 'Erro ao buscar grupos' });
+    }
+});
+
 // SERVIDOR
 app.listen(PORT, () => {
     console.log(`Servidor rodando na porta ${PORT}`);
