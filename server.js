@@ -1,3 +1,4 @@
+const puppeteer = require('puppeteer');
 const { Client, LocalAuth, MessageMedia } = require('whatsapp-web.js');
 const qrcode = require('qrcode-terminal');
 const express = require('express');
@@ -37,7 +38,7 @@ const client = new Client({
 
     puppeteer: {
         headless: true,
-        executablePath: '/usr/bin/chromium',
+        executablePath: puppeteer.executablePath(),
 
         args: [
             '--no-sandbox',
