@@ -8,7 +8,7 @@ const path = require('path');
 const fs = require('fs');
 
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
 app.use(express.json());
 app.use(express.static('public'));
@@ -34,11 +34,7 @@ const agendamentos = [];
 
 const client = new Client({
   authStrategy: new LocalAuth(),
-  puppeteer: {
-    headless: false,
-    executablePath: 'C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe',
-    args: ['--no-sandbox', '--disable-setuid-sandbox']
-  }
+  xecutablePath: 'C:\\Program Files\\Google\\Chrome\\Application\\ch
 });
 
 client.on('qr', qr => {
